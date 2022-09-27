@@ -1,8 +1,8 @@
 # pseudo codigo
 # main()
 #    datos = get_data(filename)
-#    data = duplicados(datos)
-#    data= cleaning(unicos)
+#    unicos = duplicados(data)
+#    limpios = cleaning (data) 
 #    reporte = generate_report(data)
 #    save_data(reporte)
 
@@ -12,7 +12,7 @@ import pandas as pd
 import numpy as np
 from dateutil.parser import parse
 
-root_dir = Path(".").resolve().parent
+root_dir = Path(".").resolve()
 file_name = "llamadas123_julio_2022.csv"
 
 def get_data(filename):
@@ -72,7 +72,7 @@ def generate_report(data):
 def save_data(reporte, filename):
     # Guardar la tabla:
 
-    out_name = 'resumen_' + filename # Renombrar ya el archivo de salida
+    out_name = 'resumen2_' + filename # Renombrar ya el archivo de salida
     out_path = os.path.join(root_dir, 'data', 'processed', out_name)
     reporte.to_csv(out_path)
 
