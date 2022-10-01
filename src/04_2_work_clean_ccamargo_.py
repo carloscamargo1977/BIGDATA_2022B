@@ -16,9 +16,9 @@ from dateutil.parser import parse
 root_dir = Path(".").resolve()
 file_name = "llamadas123_julio_2022.csv"
 
-def leer_datos(filename):
+def leer_datos(file_name):
     data_dir = 'raw'
-    file_path = os.path.join(root_dir, "data", data_dir, filename) #Ruta del archivo que necesito
+    file_path = os.path.join(root_dir, "data", data_dir, file_name) #Ruta del archivo que necesito
     datos = pd.read_csv(file_path, encoding='latin-1', sep=';')
     print('get_data')
     print('La tabla contiene', datos.shape[0], 'filas', datos.shape[1], 'columnas')
@@ -84,14 +84,13 @@ def save_data(reporte, filename):
 
     out_name = 'resumen3_' + filename # Renombrar ya el archivo de salida
     out_path = os.path.join(root_dir, 'data', 'processed', out_name)
-    reporte.to_csv(out_path)
+    reporte.to_csv(out_path, sep = ';')
 
 def main():
 
     filename = "llamadas123_julio_2022.csv"
     datos = leer_datos(filename)
-    reporte = generate_report(datos)
-    save_data(reporte, filename)
+    save_data(datos, filename)
 
     print('DONE!!!')
 

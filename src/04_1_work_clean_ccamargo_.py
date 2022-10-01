@@ -2,7 +2,7 @@
 # main()
 #    datos = get_data(filename)
 #    unicos = duplicados(data)
-#    limpios = cleaning (data) 
+#    limpios = cleaning (data)
 #    reporte = generate_report(data)
 #    save_data(reporte)
 
@@ -80,8 +80,7 @@ def main():
 
     filename = "llamadas123_julio_2022.csv"
     datos = get_data(filename)
-    reporte = generate_report(datos)
-    save_data(reporte, filename)
+    save_data(datos, filename)
 
     print('DONE!!!')
 
